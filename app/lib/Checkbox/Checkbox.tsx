@@ -3,10 +3,6 @@ import { Checkbox as MCheckbox, createStyles } from '@mantine/core';
 
 type Props = CheckboxProps
 
-const useStyles = createStyles((theme) => ({
-
-}));
-
 const Checkbox = (props: Props) => {
 	const {children} = props;
 	return (
@@ -16,7 +12,11 @@ const Checkbox = (props: Props) => {
 			},
 			input: {
 				cursor:'pointer'
-			}})}>
+			},
+			label: {
+				cursor:'pointer'
+			}
+		})}>
 			{children}
 		</MCheckbox>
 	);
