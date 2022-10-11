@@ -44,3 +44,7 @@ body {
     position: relative;
     z-index: 2;
 }
+.on-input-focus {
+    color: var(--primary-color);
+    transform: translateY(-1.5rem) scale(0.8);
+}
