@@ -3,6 +3,7 @@ import { json } from '@remix-run/node';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react';
 import { createEmotionCache } from '@mantine/core';
 import { StylesPlaceholder } from '@mantine/remix';
+import { requireUserToken } from '~/services';
 import styles from './styles/global.css';
 import TwStyles from './styles/app.css';
 import { isDarkMode } from '~/utils/cookies';
@@ -44,8 +45,8 @@ export const action: ActionFunction =async ({request}) => {
 export const loader: LoaderFunction = async ({ request }) => {
     const cookieHeader = request.headers.get("Cookie");
     const message = await isDarkMode.parse(cookieHeader)
-
-    return json({message});
+    const user = await requireUserToken(request);
+    return json({message, user});
 }
 
 export default function App() {

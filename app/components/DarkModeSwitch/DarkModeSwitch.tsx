@@ -6,10 +6,12 @@ import { useSubmit } from '@remix-run/react';
 const DarkModeSwitch = () => {
 	const submit = useSubmit();
 	const { toggleColorScheme } = useMantineColorScheme();
-	const onClick = (event: any) =>{
+
+	const onClick = () =>{
 		submit(null,{ method: "post", action:'/' })
 		toggleColorScheme()
 	}
+
 	return (
 			<Button type="submit" onClick={onClick}>
 				switch mode

@@ -38,7 +38,8 @@ export async function requireUserToken(
 		const searchParams = new URLSearchParams([['redirectTo', redirectTo]]);
 		throw redirect(`/login?${searchParams}`);
 	}
-	return jwt_decode(userJwt);
+	// return jwt_decode(userJwt);
+	return userJwt;
 }
 
 export async function createUserSession({

@@ -25,15 +25,7 @@ const Layout = ({children} : Props) => {
 		return (
 			<AppShell
 				padding="md"
-				navbar={
-					<Navbar width={{ base: 300 }} p="xs">
-						<Navbar.Section grow mt="xs">
-							<Stack>
-								<Button>hello world</Button>
-							</Stack>
-						</Navbar.Section>
-					</Navbar>
-				}
+
 				header={
 					<Header height={60}>
 						<Group sx={{ height: "100%" }} px={20} position="apart">

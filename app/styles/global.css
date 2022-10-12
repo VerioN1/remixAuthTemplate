@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 body {
     margin: 0;
     padding: 0;
@@ -17,7 +20,7 @@ body {
     width: 20px;
     height: 20px;
     position: absolute;
-    background: rgba(145, 145, 145, 0.48);
+    background: rgba(192, 192, 192, 0.48);
     display: block;
     content: "";
     border-radius: 9999px;
@@ -45,6 +48,24 @@ body {
     z-index: 2;
 }
 .on-input-focus {
-    color: var(--primary-color);
-    transform: translateY(-1.5rem) scale(0.8);
+    color: var(--mantine-color-violet-4);
+    transform: translateY(-1.3rem);
+    font-size: 0.9rem;
+}
+.mantine-Input-wrapper:focus-within::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: 0.2s ease 1 forwards paint-textInput-border;
+    height: 2px;
+    background: var(--mantine-color-violet-4);
+}
+@keyframes paint-textInput-border {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
 }

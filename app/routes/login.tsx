@@ -1,3 +1,4 @@
+import {Loader} from '@mantine/core';
 import type {
 	ActionFunction,
 	LoaderFunction,
@@ -9,8 +10,7 @@ import * as React from "react";
 
 import { createUserSession, getUserToken } from "~/services/user.service";
 import { safeRedirect } from "~/utils/helperFunctions";
-import DarkModeSwitch from '~/components/DarkModeSwitch/DarkModeSwitch';
-import { Button, Checkbox, TextInput } from '~/lib';
+import {Button, Checkbox, PasswordInput, TextInput} from '~/lib';
 
 export const loader: LoaderFunction = async ({ request }) => {
 	const userId = await getUserToken(request);
@@ -94,28 +94,21 @@ export default function LoginPage() {
 								required
 								autoFocus={true}
 								name="email"
-								label="email address"
+								label="Email address"
 								type="email"
 								autoComplete="email"
 							/>
-							{actionData?.errors?.email && (
-								<div className="pt-1 text-red-700" id="email-error">
-									{actionData.errors.email}
-								</div>
-							)}
 						</div>
-						<TextInput
+						<PasswordInput
 							required
-							autoFocus={true}
-							name="email"
-							label="email address"
-							type="email"
-							autoComplete="email"
+							name="password"
+							label="Password"
+							error={actionData?.errors?.password}
 						/>
-					<Button>Log in</Button>
+					<Button type="submit">Log in</Button>
 					<div className="flex items-center justify-between">
 						<div className="flex items-center">
-							<Checkbox label="Remember me" />
+							<Checkbox label="Remember me" name="remember" />
 						</div>
 						<div className="text-center ml-2 text-sm text-gray-500">
 							Don't have an account?{" "}
